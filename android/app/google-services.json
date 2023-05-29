@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "675697247420",
+    "project_id": "aiia-air",
+    "storage_bucket": "aiia-air.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675697247420:android:5e97d68621bad09ac9bcb9",
+        "android_client_info": {
+          "package_name": "com.example.aiia_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675697247420-mf23c4593sj10h2fucji9pmj1g7opb8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKLO7nclLnGg4-ZHJctzv1glIF6jh2knM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675697247420-mf23c4593sj10h2fucji9pmj1g7opb8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
