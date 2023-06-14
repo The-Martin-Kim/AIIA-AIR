@@ -1,5 +1,6 @@
-import 'package:aiia_chat/chatting/chat_bubble.dart';
 import 'package:flutter/material.dart';
+import '../chatting/chat_bubble.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

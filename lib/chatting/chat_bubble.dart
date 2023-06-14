@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 
 class ChatBubbles extends StatelessWidget {
@@ -59,6 +60,11 @@ class ChatBubbles extends StatelessWidget {
                   crossAxisAlignment:
                       isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      userName,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.black),
+                    ),
                     Text(
                       message,
                       style: const TextStyle(

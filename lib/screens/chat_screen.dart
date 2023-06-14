@@ -1,7 +1,9 @@
-import 'package:aiia_chat/chatting/message.dart';
-import 'package:aiia_chat/chatting/new_message.dart';
 import 'package:flutter/material.dart';
+import '../chatting/message.dart';
+import '../chatting/new_message.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -26,10 +28,10 @@ class _ChatScreenState extends State<ChatScreen> {
       final user = _authentication.currentUser;
       if (user != null) {
         loggedUser = user;
-        print(loggedUser!.email);
+        log("${loggedUser!.email}");
       }
     } catch (e) {
-      print(e);
+      log("$e");
     }
   }
 

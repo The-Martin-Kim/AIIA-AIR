@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import '../config/palette.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'chat_screen.dart';
 import 'main_helper.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'dart:developer';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({Key? key}) : super(key: key);
@@ -142,7 +144,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     key: const ValueKey(1),
                                     validator: (value) {
                                       if (value!.isEmpty || value.length < 4) {
-                                        return 'Please enter at least 4 charcaters.';
+                                        return 'Please enter at least 4 characters.';
                                       }
                                       return null;
                                     },
@@ -173,7 +175,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                           Radius.circular(35.0),
                                         ),
                                       ),
-                                      hintText: 'User name',
+                                      hintText: 'user name',
                                       hintStyle: TextStyle(
                                         fontSize: 14,
                                         color: Palette.textColor1,
@@ -236,8 +238,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     obscureText: true,
                                     key: const ValueKey(3),
                                     validator: (value) {
-                                      if (value!.isEmpty || value.length < 6) {
-                                        return 'Password must be at least 7 charcaters long.';
+                                      if (value!.isEmpty || value.length < 8) {
+                                        return 'Password must be at least 8 characters long.';
                                       }
                                       return null;
                                     },
@@ -339,8 +341,8 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                     obscureText: true,
                                     key: const ValueKey(5),
                                     validator: (value) {
-                                      if (value!.isEmpty || value.length < 6) {
-                                        return 'Password must be at least 7 charcaters long.';
+                                      if (value!.isEmpty || value.length < 7) {
+                                        return 'Password must be at least 8 characters long.';
                                       }
                                       return null;
                                     },
@@ -441,7 +443,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             setState(() {
                               showSpinner = false;
                             });
-                            print(e);
+                            log("ERROR: $e");
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text(
@@ -461,15 +463,17 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               password: userPassword,
                             );
                             if (newUser.user != null) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return const ChatScreen();
-                                }),
-                              );
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return const ChatScreen();
+                                  }),
+                                );
+                              });
                             }
                           } catch (e) {
-                            print(e);
+                            log("ERROR: $e");
                           }
                         }
                       },

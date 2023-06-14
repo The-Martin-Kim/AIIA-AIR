@@ -1,7 +1,8 @@
-import 'package:aiia_chat/screens/chat_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import '../screens/chat_screen.dart';
 import '../screens/main_screen.dart';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Chatting app for AIIA',
+      title: 'AIIA-AIR PROJECT',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

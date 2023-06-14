@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -22,7 +23,7 @@ class _NewMessageState extends State<NewMessage> {
     FirebaseFirestore.instance.collection('chat').add({
       'text': _userEnterMessage,
       'time': Timestamp.now(),
-      'userID': user!.uid,
+      'userID': user.uid,
       'userData': userData.data()!['userName'],
     });
     _controller.clear();
@@ -39,7 +40,7 @@ class _NewMessageState extends State<NewMessage> {
             child: TextField(
               maxLines: null,
               controller: _controller,
-              decoration: const InputDecoration(labelText: 'Send a message'),
+              decoration: const InputDecoration(labelText: 'send a message'),
               onChanged: (value) {
                 setState(() {
                   _userEnterMessage = value;
